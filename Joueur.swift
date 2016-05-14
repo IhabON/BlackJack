@@ -20,9 +20,9 @@ class Joueur {
 
     var hand: [Card] = [] // Initialise la main
 
-    init (name: String) {
-        self.playerName = name
-    }
+    //init (name: String) {
+        //self.playerName = name
+    //}
 
     func addCard(aNewCard: Card){ // Ajoute une Carte à la main
         self.hand.append(aNewCard);
@@ -67,27 +67,27 @@ class Joueur {
 // On substring avec " " comme délimiteur, on récupère la première valeur retourné
 // Qui est la valeur de la carte, et qui est donc la clé du dictionnaire value
 // Enfin, on récupère la valeur grace à la clé, dans le dictionnaire
-    func countHand(card : Card[]) -> Int {
-    var delimiter: String = " "
-    var isAs = false
-    var asCount = 0
-    var sum: Int = 0
-    for i in card {
-        var sub = card[0].componentsSeparatedByString(delimiter)
-        cardValue = value[sub[0]]
-        if cardValue == 11 {
-            isAS = true
-            asCount = asCount + 1
+    func countHand(card : [Card]) -> Int {
+        var delimiter: String = " "
+        var isAs: Bool = false
+        var asCount: Int = 0
+        var sum: Int = 0
+        for i in card {
+            var sub:[Card] = card[0].componentsSeparatedByString(delimiter)
+            var cardValue:Int = value[sub[0]]
+            if cardValue == 11 {
+                isAS = true
+                asCount = asCount + 1
+            }
+            sum = sum + cardValue
         }
-        sum = sum + cardValue
-    }
-    // Si un ou plusieurs As sont dans la main, enlève 10 tant que la main vaut plus que 21. L'As vaut donc 1 sinon 11
-    if isAS == true && sum > 21 {
-        for i in asCount {
-            if (sum > 21){
-                sum = sum - 10
+        // Si un ou plusieurs As sont dans la main, enlève 10 tant que la main vaut plus que 21. L'As vaut donc 1 sinon 11
+        if isAS == true && sum > 21 {
+            for i in 0..<asCount {
+                if (sum > 21){
+                    sum = sum - 10
+                }
             }
         }
-    }
-    return sum
+        return sum
 }

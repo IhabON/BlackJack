@@ -32,7 +32,7 @@ class BlackJack {
     
     //adding new player to the game
     func AjouterJoueur() {
-        var NouveauJoueur:Joueur = Joueur();
+        let NouveauJoueur:Joueur = Joueur();
         joueur.append(NouveauJoueur)
     }
     
@@ -43,10 +43,10 @@ class BlackJack {
     
     //calls the split function for player at playerNdx index
     func split (NumJoueur:Int) {
-        var card = getCard(currentDeck)
+        let card: Card = getCard(currentDeck)
         if (joueur[NumJoueur].split == false ) {
             joueur[NumJoueur].setSplit = true
-            joueur[NumJoueur].addCard(card!)}
+            joueur[NumJoueur].addCard(card)}
         
     }
     
@@ -60,6 +60,29 @@ class BlackJack {
         else {
             JoueurActuel = JoueurActuel + 1
             if (JoueurActuel > joueur.count - 1) {JoueurActuel = 0}
+        }
+    }
+    
+    func cut(joueur: [Int]) {
+        var rnd = random(joueur.lenght)//Sortir un nombre aléatoire entre 1 (exclure la banque à 0) jusqu'au max de joueur
+        print(joueur[rnd] + " à été désigné, placez la carte bleu dans le deck. [1-312]")
+        var correctAnswer:Bool = false
+        while correctAnswer == false {
+            var answerBlue = ""// Récupère la réponse du joueur
+            if (answerBlue >= 1 || answerBlue <= 312){
+                correctAnswer = true
+            }
+        }
+        cards = insert("Blue", atIndex: answerBlue) // Ajout de la carte bleu dans le paquet à l'emplacement définit par le joueur
+        cardsCount = cards.count
+        cards = insert("Red", atIndex: cardsCount) // Place la carte rouge à la fin du paquet
+        
+        var newIndex = 314 - answerBlue
+        var i: Int = 0
+        var arrayTemp = [String]
+        while i < 314 {
+            i += 1
+            arrayTemp = ""
         }
     }
     
