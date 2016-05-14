@@ -11,6 +11,7 @@ import Foundation
 class Joueur {
     var cards:[Card] = []
     var playerName: String = ""
+    var score: Double = 0.0
     var dyfg : Int = 1000
     var mise: Int = 0
     var EnJeu:Bool = false

@@ -27,11 +27,8 @@ class BlackJack {
         croupier.AjouterCarteRouge(getCard(currentDeck)!)
         j.AjouterCarteBleue(getCard(currentDeck)!)
         
-        
-        
         //dealer's hidden card will be stored in a temporary variable, cardBack picture will replace it.
-        Croupier.hiddenCard = dealer.cards[0]
-        Croupier.cards[0].image = UIImage(named: "979a46ed6000168e916a6ef1230c9afb_large.jpg")    }
+        croupier.hiddenCard = croupier.cards[0]}
     
     //adding new player to the game
     func AjouterJoueur() {

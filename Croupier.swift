@@ -12,7 +12,7 @@ class Croupier {
     
     
     var cards:[Card] = []
-    
+    var score: Double = 0.0
     //this function behaves differently for dealer
     func checkScore(type:String) -> (intScore: Int, strScore: String) {
         if (type == "hidden") {
