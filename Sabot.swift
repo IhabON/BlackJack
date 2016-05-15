@@ -12,17 +12,17 @@ class Sabot {
     var decks:[Deck] = []
     
     //constructor
-    init (number:Int = 1) {
-        for ndx in 0..<number {
-            var tempDeck = Deck ()
-            tempDeck.createDeck()
+    init (number:Int = 4) {
+        for _ in 0..<number {
+            let tempDeck = Deck ()
+            tempDeck.initDeck()
             decks.append(tempDeck)
         }
     }
     //adding a new deck to the Shoe
     func addDeck() {
-        var newDeck:Deck = Deck()
-        newDeck.createDeck()
+        let newDeck:Deck = Deck()
+        newDeck.initDeck()
         decks.append(newDeck)
     }
     

@@ -8,12 +8,14 @@
 
 import Foundation
 
+    enum Carte: Character{
+        case Rouge = "R", Bleue = "B"
+    }
 
-    
     enum Couleur: Character{
         case Pique = "♠", Coeur = "♡", Carre = "♢", Trefle = "♣"
-    }
-    
+        }
+
     enum Numero: Int {
         case Deux = 2, Trois = 3, Quatre = 4, Cinq = 5, Six = 6, Sept = 7, Huit = 8, Neuf = 9, Dix = 10
         case Valet, Reine, Roi, As
@@ -46,8 +48,8 @@ struct Card{
         self.couleur = couleur
     }
     var description: String {
-        var output = "la couleur est \(couleur.rawValue),"
-        output += "la valeur de la carte est \(numero.valeur.first)"
+        var output = "Couleur de carte \(couleur.rawValue),"
+        output += "Valeur de carte \(numero.valeur.first)"
         if let second = numero.valeur.second {
             output += " ou \(second)"
         }

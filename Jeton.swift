@@ -36,4 +36,39 @@ class Jeton {
         playerToken = playerToken + prize
         return playerToken
     }
+    
+    func equalBet(player: Joueur){
+        player.playerToken = player.playerToken + player.playerBetTable
+    }
+    
+    func winAssur(player: Joueur){
+        player.playerToken = player.playerToken + player.playerBetTable + player.assurance
+    }
+    
+    func loseAssur(player: anyObject){
+        player.assurance = 0
+        player.playerBetTable = 0
+    }
+    func winAssurLoseBet(player: anyObject){
+        player.playerToken = player.playerToken + player.assurance
+    }
+    
+    func playerBet(player: anyObject){
+        // Miser
+        print("A vous de miser " + player.playerName)
+        print("Vous avez le choix entre miser 1, 2, 5, 10 euros")// Ne peut miser qu'un jeton !!
+        newBet = input...// Récupère la valeur du jeton choisi
+            theBet = bet(newBet)
+        return theBet
+    }
+    
+    func betDouble(player : anyObject){
+        player.playerBetTable = player.playerBetTable + player.playerBetTable
+        player.playerToken = player.playerToken - player.playerBetTable
+    }
+    
+    func playerAssur(player : anyObject){
+        player.playerAssurance = player.playerBetTable / 2   // Arrondir au nombre au dessus
+        player.playerBetTable = player.playerBetTable + ( player.playerBetTable / 2 )
+    }
 }
