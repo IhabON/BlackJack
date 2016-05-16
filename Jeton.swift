@@ -66,7 +66,7 @@ class Jeton {
     }
     
     func playerAssur(player : Joueur){
-        player.playerAssurance = player.playerBetTable / 2   // Arrondir au nombre au dessus
+        self.playerAssurance = player.playerBetTable / 2   // Arrondir au nombre au dessus
         player.playerBetTable = player.playerBetTable + ( player.playerBetTable / 2 )
     }
 }

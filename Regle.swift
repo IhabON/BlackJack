@@ -39,7 +39,7 @@ class Regle {
         }
     }
     
-    func doubleBet(deck :Deck, playerR: Joueur){
+    func doubleBet(deck :Deck, playerR: Jeton){
         pickCard(deck, playerR)
         betDouble(playerR)
     }
@@ -48,7 +48,7 @@ class Regle {
         
     }
     
-    func assurance(d: Deck, playerR: Joueur) {
+    func assurance(d: Deck, playerR: Jeton) {
         playerR.playerAssur(playerR)
         assurance = false
     }
@@ -61,7 +61,7 @@ class Regle {
         assurance = false
     }
     
-    func condition(playerR: Joueur, playerB: Joueur){
+    func condition(playerR: Jeton, playerB: Joueur){
         if (!assurance){
             
             var victory = false
