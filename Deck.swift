@@ -57,28 +57,7 @@ class Deck {
             //cards[m] = cards[k]
     }
     
-    func cut(player: [Int], card) { ////////////////////////// Rename de cards en card
-        var rnd = random(player.lenght)//Sortir un nombre aléatoire entre 1 (exclure la banque à 0) jusqu'au max de joueur
-        print(player[rnd] + " à été désigné, placez la carte bleu dans le deck. [1-312]")
-        var correctAnswer = false
-        while correctAnswer == false {
-            var answerBlue = input...// Récupère la réponse du joueur
-            if (answerBlue >= 1 || answerBlue <= 312){
-                correctAnswer = true
-            }
-        }
-        card = insert("Blue", atIndex: answerBlue) // Ajout de la carte bleu dans le paquet à l'emplacement définit par le joueur
-        cardsCount = card.count
-        card = insert("Red", atIndex: cardsCount) // Place la carte rouge à la fin du paquet
-        
-        var newIndex = 314 - answerBlue
-        var i: Int = 0
-        var arrayTemp = [String]()
-        while i < 314 {
-            i += 1
-            arrayTemp = []
-        }
-        
+            
    
         
     func destroyCards() {

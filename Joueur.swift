@@ -10,18 +10,22 @@ import Foundation
 
 class Joueur {
     var cards:[Card] = []
-    var playerName: String
+    var JoueurName: String
     
-    var mise: Int = 0
+    var playerToken: Int = 0
+    var playerBetTable: Int = 0
+    
     var EnJeu:Bool = false
     var abondon:Bool = false
     var split:Bool = false
     var Main: LaMain
 
     var hand: [Card] = [] // Initialise la main
-
-    init (name: String) {
-        self.playerName = name
+   
+    init (name: String, jeton: Int , mise: Int) {
+        self.JoueurName = name
+        self.playerToken = jeton
+        self.playerBetTable = mise
     }
 
     func addCard(aNewCard: Card){ // Ajoute une Carte à la main

@@ -18,37 +18,37 @@ class Regle {
     // le croupier doit s'arreter quand il est entre 17 et 21
     
     
-    func allowedToDo(playerR: anyObject, handPlayer: [String], handBank: [String]) {
+    func allowedToDo(playerR: Joueur, handPlayer: [String], handBank: [String]) {
         var handValue = countHand(handPlayer)
         for i in handValue { // aCard
             if (handValue[i] < 21){ // La second valeur, si elle existe, est forcément inférieur à la première
                 aCard = true        // On peut donc boucler sur la variable booleen
                 served = true
             }
-            if (handValue[i] < 21 && (handValue[i] == 9 || handValue[i] == 10 || handValue[i] == 11) {//doubleBet
+            if (handValue[i] < 21 && (handValue[i] == 9 || handValue[i] == 10 || handValue[i] == 11) {
             doubleBet = true
             }
         }
-        sub = handBank[0].componentsSeparatedByString(" ")
-        if (sub == "as") {
+        var sub = handBank[0].componentsSeparatedByString(" ")
+        if (sub.contains("as") {
             assurance = true
         }
         
-        if (handPlayer[0] == handPlayer[1]){ // separate
+        if (handPlayer[0] == handPlayer[1]){
             separate = true
         }
     }
     
-    func doubleBet(deck :Deck, playerR: anyObject){
+    func doubleBet(deck :Deck, playerR: Joueur){
         pickCard(deck, playerR)
         betDouble(playerR)
     }
     
-    func separate(deck, playerR: anyObject){
+    func separate(deck, playerR: Joueur){
         
     }
     
-    func assurance(deck, playerR: anyObject) {
+    func assurance(d: Deck, playerR: Joueur) {
         playerR.playerAssur(playerR)
         assurance = false
     }
@@ -61,16 +61,16 @@ class Regle {
         assurance = false
     }
     
-    func condition(playerR: anyObject, playerB: anyObject){
+    func condition(playerR: Joueur, playerB: Joueur){
         if (!assurance){
             
             var victory = false
             var equal = false
-            handR = countHand(playerR.hand())
-            handB = countHand(playerB.hand())
+            var handR = countHand(playerR.hand())
+            var handB = countHand(playerB.hand())
             if (handR == 21){
                 victory = true
-                result = "BlackJack !!"
+                var result = "BlackJack !!"
                 if (handB == true) {
                     equal = true
                     result = "Egualité !"
@@ -78,7 +78,7 @@ class Regle {
             }
             if (handR < 21){
                 victory = true
-                result = "Vous avez gagnez."
+                var result = "Vous avez gagnez."
                 if (handB < 21){
                     victory = false
                     result = "Vous avez perdu."
@@ -88,7 +88,7 @@ class Regle {
                 }
             } else if (handB > 21) {
                 victory = true
-                result = "Vous avez gagnez."
+                var result = "Vous avez gagnez."
                 if (handR < handB){
                     victory = false
                     result = "Vous avez perdu."
@@ -97,21 +97,21 @@ class Regle {
             
             if (equal){
                 playerR.equalBet()
-                result = "Egualité !"
+                var result = "Egualité !"
             }
         } else {
-            handR = countHand(playerR.hand())
-            handB = countHand(playerB.hand())
+            var handR = countHand(playerR.hand())
+            var handB = countHand(playerB.hand())
             
             if (handB == 21){
                 playerR.winAssur()
-                result = "Vous avez gagnez votre assurance et votre mise"
+                var result = "Vous avez gagnez votre assurance et votre mise"
             } else if (handB != 21 && handR > handB){
                 playerR.winAssurLoseBet()
-                result = "Vous avez gagnez votre assurance et perdu votre mise."
+                var result = "Vous avez gagnez votre assurance et perdu votre mise."
             } else {
                 playerR.loseAssur()
-                result = "Vous avez perdu votre assurance et votre mise"
+                var result = "Vous avez perdu votre assurance et votre mise"
             }
             
             return result

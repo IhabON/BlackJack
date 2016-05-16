@@ -15,9 +15,7 @@ class Jeton {
     var red: Int = 5
     var white: Int = 10
     var black: Int = 10
-    
     var playerToken: Int = 0
-    var playerBetTable: Int = 0
     
     func basicToken() { // Le joueur commence avec une valeur de 1200
         playerToken = 1200
@@ -45,29 +43,29 @@ class Jeton {
         player.playerToken = player.playerToken + player.playerBetTable + player.assurance
     }
     
-    func loseAssur(player: anyObject){
+    func loseAssur(player: Joueur){
         player.assurance = 0
         player.playerBetTable = 0
     }
-    func winAssurLoseBet(player: anyObject){
+    func winAssurLoseBet(player: Joueur){
         player.playerToken = player.playerToken + player.assurance
     }
     
-    func playerBet(player: anyObject){
+    func playerBet(player: Joueur){
         // Miser
-        print("A vous de miser " + player.playerName)
+        print("A vous de miser " + player.JoueurName)
         print("Vous avez le choix entre miser 1, 2, 5, 10 euros")// Ne peut miser qu'un jeton !!
-        newBet = input...// Récupère la valeur du jeton choisi
-            theBet = bet(newBet)
+        var newBet:String? = readLine()// Récupère la valeur du jeton choisi
+        var theBet:Int = bet(newBet.hashValue)
         return theBet
     }
     
-    func betDouble(player : anyObject){
+    func betDouble(player : Joueur){
         player.playerBetTable = player.playerBetTable + player.playerBetTable
         player.playerToken = player.playerToken - player.playerBetTable
     }
     
-    func playerAssur(player : anyObject){
+    func playerAssur(player : Joueur){
         player.playerAssurance = player.playerBetTable / 2   // Arrondir au nombre au dessus
         player.playerBetTable = player.playerBetTable + ( player.playerBetTable / 2 )
     }
